@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "eventId": {
+      "$ref": "Event/Shared/IdString.json"
+    },
+    "aggregateId": {
+      "$ref": "Event/Shared/IdString.json"
+    },
+    "aggregateVersion": {
+      "$ref": "Event/Shared/AggregateVersionInteger.json"
+    },
+    "causationId": {
+      "$ref": "Event/Shared/IdString.json"
+    },
+    "correlationId": {
+      "$ref": "Event/Shared/IdString.json"
+    },
+    "recordedOn": {
+      "$ref": "Event/Shared/RecordedOnString.json"
+    },
+    "eventName": {
+      "$ref": "Event/Shared/EventNameString.json"
+    },
+    "jsonPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "withIp": {
+          "type": "string"
+        },
+        "withExistingSessionToken": {
+          "type": "string"
+        },
+        "refreshedSessionToken": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "withIp",
+        "withExistingSessionToken",
+        "refreshedSessionToken"
+      ]
+    },
+    "jsonMetadata": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "eventId",
+    "aggregateId",
+    "aggregateVersion",
+    "causationId",
+    "correlationId",
+    "recordedOn",
+    "eventName",
+    "jsonPayload",
+    "jsonMetadata"
+  ]
+}

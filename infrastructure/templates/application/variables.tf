@@ -1,4 +1,4 @@
-variable "environment_name" {
+variable "resource_id_prefix" {
   type = string
 }
 
@@ -10,26 +10,78 @@ variable "application_directory_name" {
   type = string
 }
 
-variable "event_store_pg_database" {
-  type = string
-}
-
-variable "event_store_pg_username" {
-  type = string
-}
-
-variable "event_store_pg_password" {
-  type = string
-}
-
-variable "event_store_pg_host" {
-  type = string
-}
-
-variable "event_store_pg_port" {
-  type = string
-}
-
 variable "vpc_connector_subnetwork_name" {
   type = string
+}
+
+variable "event_store_host" {
+  type = string
+}
+
+variable "event_store_port" {
+  type = number
+}
+
+variable "event_store_database_name" {
+  type = string
+}
+
+variable "event_store_user" {
+  type = string
+}
+
+variable "event_store_password" {
+  type = string
+}
+
+variable "mongodb_projection_host" {
+  type = string
+}
+
+variable "mongodb_projection_port" {
+  type = number
+}
+
+variable "mongodb_projection_authentication_database" {
+  type = string
+}
+
+variable "mongodb_projection_database_name" {
+  type = string
+}
+
+variable "mongodb_projection_database_username" {
+  type = string
+}
+
+variable "mongodb_projection_database_password" {
+  type = string
+}
+
+variable "mongodb_reaction_host" {
+  type = string
+}
+
+variable "mongodb_reaction_port" {
+  type = number
+}
+
+variable "mongodb_reaction_authentication_database" {
+  type = string
+}
+
+variable "mongodb_reaction_database_name" {
+  type = string
+}
+
+variable "mongodb_reaction_database_username" {
+  type = string
+}
+
+variable "mongodb_reaction_database_password" {
+  type = string
+}
+
+variable "session_tokens_expire_after_seconds" {
+  type = number
 }

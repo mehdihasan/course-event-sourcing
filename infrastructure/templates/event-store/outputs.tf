@@ -2,6 +2,10 @@ output "database_private_ip_address" {
   value = google_sql_database_instance.main.private_ip_address
 }
 
+output "database_public_ip_address" {
+  value = google_sql_database_instance.main.public_ip_address
+}
+
 # TLS cert uses this as common name for PG connections
 output "database_connection_name" {
   value = google_sql_database_instance.main.connection_name
@@ -21,4 +25,8 @@ output "database_admin_username" {
 
 output "database_admin_password" {
   value = random_password.admin_user.result
+}
+
+output "database_port" {
+  value = 5432
 }

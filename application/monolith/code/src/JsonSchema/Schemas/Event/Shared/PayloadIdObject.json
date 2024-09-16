@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["payload_id"]
+    },
+    "id": {
+      "$ref": "Event/Shared/IdString.json"
+    }
+  },
+  "required": [
+    "type",
+    "id"
+  ]
+}

@@ -1,8 +1,8 @@
-variable "environment_name" {
+variable "resource_id_prefix" {
   type = string
 }
 
-variable "public_cidr_ranges_with_access" {
+variable "public_cidrs_with_access" {
   type = list(string)
 }
 

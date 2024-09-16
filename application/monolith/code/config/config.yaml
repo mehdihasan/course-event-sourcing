@@ -1,0 +1,56 @@
+framework:
+    secret: '%env(API_SYMFONY_SECRET)%'
+    #default_locale: en
+    #csrf_protection: ~
+    #http_method_override: true
+    #trusted_hosts: ~
+    # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+    #session:
+    #    # The native PHP session handler will be used
+    #    handler_id: ~
+    #esi: ~
+    #fragments: ~
+    php_errors:
+        log: true
+    router:
+        strict_requirements: ~
+
+doctrine_mongodb:
+    auto_generate_proxy_classes: '%kernel.debug%'
+    auto_generate_hydrator_classes: '%kernel.debug%'
+    connections:
+        projection:
+            server: 'mongodb://%mongodb_projection_host%'
+            options:
+                username: '%mongodb_projection_username%'
+                password: '%mongodb_projection_password%'
+                db: '%mongodb_projection_database_name%'
+                authSource: '%mongodb_projection_authentication_database%'
+        reaction:
+            server: 'mongodb://%mongodb_reaction_host%'
+            options:
+                username: '%mongodb_reaction_username%'
+                password: '%mongodb_reaction_password%'
+                db: '%mongodb_reaction_database_name%'
+                authSource: '%mongodb_reaction_authentication_database%'
+    document_managers:
+        projection:
+            connection: projection
+            database: '%mongodb_projection_database_name%'
+            mappings:
+                Galeas\Api\BoundedContext\Identity\User\Projection:
+                    type: xml
+                    is_bundle: false
+                    prefix: Galeas\Api\BoundedContext\Identity\User\Projection
+                    dir: '%kernel.project_dir%/src/BoundedContext/Identity/User/Projection/MongoMapping'
+                    alias: Galeas\Api\BoundedContext\Identity\User\Projection
+                Galeas\Api\BoundedContext\Security\Session\Projection:
+                    type: xml
+                    is_bundle: false
+                    prefix: Galeas\Api\BoundedContext\Security\Session\Projection
+                    dir: '%kernel.project_dir%/src/BoundedContext/Security/Session/Projection/MongoMapping'
+                    alias: Galeas\Api\BoundedContext\Security\Session\Projection
+        reaction:
+            connection: reaction
+            database: '%mongodb_reaction_database_name%'
+            mappings:

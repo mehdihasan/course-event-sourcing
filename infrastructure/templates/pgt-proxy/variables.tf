@@ -1,9 +1,9 @@
-variable "environment_name" {
+variable "resource_id_prefix" {
   type = string
 }
 
 variable "pgtproxy_key_in_base64" {
-  type = string
+  type      = string
   sensitive = true
 }
 
